@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `Comedown | Sola Simpson`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
   },
@@ -30,5 +30,26 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+
+    {
+      resolve: "gatsby-source-prismic-graphql",
+      options: {
+        repositoryName: "comedown",
+        path: "/preview", // (optional preview path. Default: /preview)
+        previews: true, // (optional, activated Previews. Default: false)
+        pages: [
+          {
+            // (optional, builds pages dynamically)
+            type: "Page", // TypeName from prismic
+            match: "/:uid", // Pages will be generated under this pattern
+            path: "/page", // Placeholder page for unpublished documents
+            component: require.resolve("./src/templates/page.js"),
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+    },
   ],
 }
