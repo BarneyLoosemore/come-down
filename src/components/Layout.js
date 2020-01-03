@@ -6,7 +6,7 @@ import { useStaticQuery, graphql } from "gatsby"
 const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Raleway', sans-serif;
     background-size: 100%;
     background-image: url(${({ backgroundImage }) =>
       backgroundImage
@@ -37,7 +37,7 @@ export const Layout = ({ children }) => {
     <>
       <GlobalStyles />
       <link
-        href="https://fonts.googleapis.com/css?family=Oswald:200,400,700&display=swap"
+        href="https://fonts.googleapis.com/css?family=Raleway:400,800&display=swap"
         rel="stylesheet"
       ></link>
       <main>{children}</main>

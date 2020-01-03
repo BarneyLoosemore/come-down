@@ -23,8 +23,8 @@ const Container = styled.div`
 
 const Header = styled.div`
   color: white;
-  font-size: 60px;
-  font-family: "Oswald", sans-serif;
+  font-size: 48px;
+  font-weight: 800;
   transition: opacity 0.1s;
   text-align: center;
   :hover {

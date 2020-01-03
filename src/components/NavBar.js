@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
@@ -15,13 +15,14 @@ const Container = styled.div`
 const NavLink = styled(Link)`
   text-decoration: none;
   font-size: 24px;
-  font-family: "Oswald", sans-serif;
-  font-weight: 200;
   color: white;
-  transition: opacity 0.1s;
+  @media (max-width: 640px) {
+    font-size: 18px;
+  }
+  transition: color 0.1s;
   :hover {
     cursor: pointer;
-    opacity: 0.7;
+    color: ${({ toggle }) => (toggle ? "#F3BF4E" : "#DD3976")};
   }
 `
 
@@ -55,7 +56,7 @@ const Instagram = () => (
     />
     <path
       d="M184.777 41.1318C183.096 36.5769 180.414 32.4542 176.93 29.0701C173.546 25.5856 169.426 22.904 164.868 21.2231C161.172 19.7875 155.619 18.0788 145.392 17.6133C134.328 17.1087 131.011 17 103.001 17C74.9893 17 71.6722 17.1059 60.6112 17.6105C50.3837 18.0788 44.8281 19.7875 41.1346 21.2231C36.5769 22.904 32.4542 25.5856 29.0729 29.0701C25.5884 32.4542 22.9068 36.5742 21.2231 41.1318C19.7875 44.8281 18.0788 50.3837 17.6133 60.6112C17.1087 71.6722 17 74.9893 17 103.001C17 131.011 17.1087 134.328 17.6133 145.392C18.0788 155.619 19.7875 161.172 21.2231 164.868C22.9068 169.426 25.5856 173.546 29.0701 176.93C32.4542 180.414 36.5742 183.096 41.1318 184.777C44.8281 186.215 50.3837 187.924 60.6112 188.39C71.6722 188.894 74.9865 189 102.999 189C131.013 189 134.331 188.894 145.389 188.39C155.616 187.924 161.172 186.215 164.868 184.777C174.017 181.248 181.248 174.017 184.777 164.868C186.212 161.172 187.921 155.619 188.39 145.392C188.894 134.328 189 131.011 189 103.001C189 74.9893 188.894 71.6722 188.39 60.6112C187.924 50.3837 186.215 44.8281 184.777 41.1318ZM103.001 156.865C73.2499 156.865 49.132 132.75 49.132 102.999C49.132 73.2471 73.2499 49.132 103.001 49.132C132.75 49.132 156.868 73.2471 156.868 102.999C156.868 132.75 132.75 156.865 103.001 156.865ZM158.998 59.5909C152.045 59.5909 146.409 53.9545 146.409 47.0024C146.409 40.0502 152.045 34.4138 158.998 34.4138C165.95 34.4138 171.586 40.0502 171.586 47.0024C171.583 53.9545 165.95 59.5909 158.998 59.5909Z"
-      fill="#D90A57"
+      fill="#DD3976"
     />
   </svg>
 )
@@ -70,7 +71,7 @@ const Twitter = () => (
   >
     <path
       d="M193.895 43.5929C193.98 45.4872 194.022 47.3903 194.022 49.3023C194.022 107.68 149.446 174.997 67.9294 175C42.9019 175 19.6125 167.687 0 155.155C3.46762 155.563 6.99711 155.766 10.5708 155.766C31.3353 155.766 50.444 148.706 65.6137 136.855C46.2133 136.497 29.8563 123.724 24.2115 106.17C26.9131 106.687 29.6913 106.969 32.5402 106.969C36.5853 106.969 40.5037 106.426 44.2276 105.412C23.9493 101.365 8.67347 83.4999 8.67347 62.1073C8.67347 61.9076 8.67347 61.7284 8.67936 61.5434C14.6512 64.8533 21.4804 66.8446 28.7515 67.0678C16.852 59.1527 9.02995 45.6223 9.02995 30.2944C9.02995 22.2003 11.2248 14.6171 15.0313 8.08831C36.8858 34.8203 69.5468 52.4007 106.38 54.2481C105.62 51.0116 105.228 47.64 105.228 44.1744C105.228 19.7861 125.076 0 149.55 0C162.298 0 173.811 5.37165 181.898 13.9592C191.995 11.9739 201.475 8.29683 210.04 3.2365C206.726 13.5481 199.702 22.2003 190.551 27.6718C199.516 26.6027 208.06 24.2326 216 20.7142C210.069 29.5749 202.548 37.3578 193.895 43.5929Z"
-      fill="#D90A57"
+      fill="#DD3976"
     />
   </svg>
 )
@@ -114,21 +115,36 @@ const Kofi = () => (
   </svg>
 )
 
-export const NavBar = () => (
-  <Container>
-    <NavLink to="/about">ABOUT</NavLink>
-    <NavLink to="/archive">ARCHIVE</NavLink>
+export const NavBar = () => {
+  const [toggle, changeToggle] = useState(false)
+  return (
+    <Container>
+      <NavLink
+        toggle={toggle}
+        onMouseEnter={() => changeToggle(!toggle)}
+        to="/about"
+      >
+        ABOUT
+      </NavLink>
+      <NavLink
+        toggle={toggle}
+        onMouseEnter={() => changeToggle(!toggle)}
+        to="/archive"
+      >
+        ARCHIVE
+      </NavLink>
 
-    <SocialMediaLink href="https://twitter.com/solasimpsonn">
-      <Twitter />
-    </SocialMediaLink>
+      <SocialMediaLink href="https://twitter.com/solasimpsonn">
+        <Twitter />
+      </SocialMediaLink>
 
-    <SocialMediaLink href="https://www.instagram.com/solasimpson/?hl=en">
-      <Instagram />
-    </SocialMediaLink>
+      <SocialMediaLink href="https://www.instagram.com/solasimpson/?hl=en">
+        <Instagram />
+      </SocialMediaLink>
 
-    <SocialMediaLink>
-      <Kofi />
-    </SocialMediaLink>
-  </Container>
-)
+      <SocialMediaLink>
+        <Kofi />
+      </SocialMediaLink>
+    </Container>
+  )
+}
