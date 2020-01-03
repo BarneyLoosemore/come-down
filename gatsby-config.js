@@ -32,20 +32,10 @@ module.exports = {
     // `gatsby-plugin-offline`,
 
     {
-      resolve: "gatsby-source-prismic-graphql",
+      resolve: `gatsby-source-prismic`,
       options: {
-        repositoryName: "comedown",
-        path: "/preview", // (optional preview path. Default: /preview)
-        previews: true, // (optional, activated Previews. Default: false)
-        pages: [
-          {
-            // (optional, builds pages dynamically)
-            type: "Page", // TypeName from prismic
-            match: "/:uid", // Pages will be generated under this pattern
-            path: "/page", // Placeholder page for unpublished documents
-            component: require.resolve("./src/templates/page.js"),
-          },
-        ],
+        repositoryName: `comedown`,
+        linkResolver: ({ node, key, value }) => page => `/${page.uid}`,
       },
     },
     {
