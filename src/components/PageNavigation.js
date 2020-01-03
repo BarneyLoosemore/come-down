@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { Link, graphql, useStaticQuery, navigate } from "gatsby"
 
-import { useKey } from "../../hooks/useKey"
+import { useKey } from "../hooks/useKey"
 
 const Container = styled.div`
   display: flex;

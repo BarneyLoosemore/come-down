@@ -2,8 +2,8 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
-import { NavBar } from "../NavBar"
-import { LoadingSpinner } from "../LoadingSpinner"
+import { NavBar } from "./NavBar"
+import { LoadingSpinner } from "./LoadingSpinner"
 
 const ContentContainer = styled.div`
   display: flex;
