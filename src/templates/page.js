@@ -1,32 +1,11 @@
-import React, { useRef, useEffect } from "react"
-import { graphql, navigate } from "gatsby"
-import { RichText } from "prismic-reactjs"
+import React from "react"
+import { graphql } from "gatsby"
 import styled from "styled-components"
 
 import { Layout } from "../components/Layout"
 import { SEO } from "../components/SEO"
-// import { ContentBox } from "../components/ContentBox"
-// import { PageNavigation } from "../components/PageNavigation"
-
-export const query = graphql`
-  query PageQuery($uid: String!) {
-    prismic {
-      allPages(uid: $uid) {
-        edges {
-          node {
-            _meta {
-              uid
-            }
-            pageTitle: page_title
-            pageContent: page_content
-            chapterNumber: chapter_number
-            pageNumber: page_number
-          }
-        }
-      }
-    }
-  }
-`
+import { ContentBox } from "../components/ContentBox"
+import { PageNavigation } from "../components/PageNavigation"
 
 const Container = styled.div`
   display: flex;
@@ -34,32 +13,30 @@ const Container = styled.div`
 `
 
 const TitleContainer = styled(Container)`
-  font-size: 18px;
+  margin-top: 30px;
+  font-size: 28px;
   @media (max-width: 640px) {
-    font-size: 12px;
+    font-size: 20px;
   }
 `
 
-export const Page = ({ pageTitle, pageContent, _meta: { uid } }) => (
+export const Page = ({ uid, data: { pageTitle, pageContent } }) => (
   <>
-    <TitleContainer>
-      <RichText render={pageTitle} />
-    </TitleContainer>
-
-    {/* <PageNavigation
+    <TitleContainer>{pageTitle.text}</TitleContainer>
+    <PageNavigation
       pageContent={pageContent}
       pageTitle={pageTitle}
       currentUid={Number(uid)}
-    /> */}
+    />
   </>
 )
 
 export const PageContainer = ({ data }) => {
   if (
     !data ||
-    !data.prismic ||
-    !data.prismic.allPages ||
-    !data.prismic.allPages.edges[0]
+    !data.allPrismicPage ||
+    !data.allPrismicPage.edges[0] ||
+    !data.allPrismicPage.edges[0].node
   ) {
     return null
   }
@@ -67,11 +44,34 @@ export const PageContainer = ({ data }) => {
   return (
     <Layout>
       <SEO />
-      {/* <ContentBox> */}
-      <Page {...data.prismic.allPages.edges[0].node} />
-      {/* </ContentBox> */}
+      <ContentBox>
+        <Page {...data.allPrismicPage.edges[0].node} />
+      </ContentBox>
     </Layout>
   )
 }
+
+export const pageQuery = graphql`
+  query PageBySlug($uid: String!) {
+    allPrismicPage(filter: { uid: { eq: $uid } }) {
+      edges {
+        node {
+          uid
+          data {
+            pageTitle: page_title {
+              text
+            }
+            chapterNumber: chapter_number
+            pageNumber: page_number
+            pageContent: page_content {
+              alt
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 export default PageContainer
