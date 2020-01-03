@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 import { Layout } from "../components/Layout"
 import { SEO } from "../components/SEO"
-// import { ContentBox } from "../components/ContentBox"
+import { ContentBox } from "../components/ContentBox"
 
 const StyledLink = styled(Link)`
   :hover {
@@ -32,9 +32,8 @@ const IndexPage = () => (
     <SEO title="Home" />
     <ContentBox>
       <Container>
-        {/* <StyledLink to="/about">About</StyledLink>
-        <StyledLink to="/1">Comic</StyledLink> */}
-        index
+        <StyledLink to="/about">About</StyledLink>
+        <StyledLink to="/1">Comic</StyledLink>
       </Container>
     </ContentBox>
   </Layout>
