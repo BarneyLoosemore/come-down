@@ -142,7 +142,7 @@ export const NavBar = () => {
         <Instagram />
       </SocialMediaLink>
 
-      <SocialMediaLink>
+      <SocialMediaLink href="https://www.kofi.com/solasimpson">
         <Kofi />
       </SocialMediaLink>
     </Container>
