@@ -40,7 +40,6 @@ export const Layout = ({ children }) => {
         href="https://fonts.googleapis.com/css?family=Oswald:200,400,700&display=swap"
         rel="stylesheet"
       ></link>
-      {typeof window !== "undefined" ? "window" : "no window"}
       <main>{children}</main>
       <div style={{ marginBottom: "50px" }} />
       <footer style={{ margin: "8px", color: "white" }}>
