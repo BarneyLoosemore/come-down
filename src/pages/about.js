@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { graphql } from "gatsby"
+import parse from "html-react-parser"
 
 import { Layout } from "../components/Layout"
 import { SEO } from "../components/SEO"
@@ -8,17 +9,12 @@ import { ContentBox } from "../components/ContentBox"
 
 export const query = graphql`
   query AboutQuery {
-    allPrismicComicPost {
+    allPrismicAbout {
       edges {
         node {
           data {
-            about {
+            description {
               html
-              text
-              raw {
-                type
-                text
-              }
             }
           }
         }
@@ -35,10 +31,11 @@ const Container = styled.div`
 const About = ({ data }) => {
   if (
     !data ||
-    !data.allPrismicComicPost ||
-    !data.allPrismicComicPost.edges[0] ||
-    !data.allPrismicComicPost.edges[0].node ||
-    !data.allPrismicComicPost.edges[0].node.data
+    !data.allPrismicAbout ||
+    !data.allPrismicAbout.edges[0] ||
+    !data.allPrismicAbout.edges[0].node ||
+    !data.allPrismicAbout.edges[0].node.data ||
+    !data.allPrismicAbout.edges[0].node.data.description
   ) {
     return null
   }
@@ -48,7 +45,7 @@ const About = ({ data }) => {
       <SEO title="About" />
       <ContentBox>
         <Container>
-          {data.allPrismicComicPost.edges[0].node.data.about.text}
+          {parse(data.allPrismicAbout.edges[0].node.data.description.html)}
         </Container>
       </ContentBox>
     </Layout>
