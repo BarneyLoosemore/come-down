@@ -27,6 +27,10 @@ const Header = styled.div`
   font-weight: 800;
   transition: opacity 0.1s;
   text-align: center;
+
+  text-shadow: -2px -2px 6px rgba(255, 255, 255, 0.5),
+    2px 2px 6px rgba(0, 0, 0, 0.4);
+
   :hover {
     opacity: 0.7;
   }
