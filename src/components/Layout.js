@@ -42,7 +42,7 @@ export const Layout = ({ children }) => {
       ></link>
       <main>{children}</main>
       <div style={{ marginBottom: "50px" }} />
-      <footer style={{ margin: "8px", color: "white" }}>
+      <footer style={{ margin: "8px", color: "white", fontSize: "14px" }}>
         {data.site && data.site.siteMetadata.title}
       </footer>
     </>
