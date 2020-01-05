@@ -61,8 +61,6 @@ export const pageQuery = graphql`
             pageTitle: page_title {
               text
             }
-            chapterNumber: chapter_number
-            pageNumber: page_number
             pageContent: page_content {
               alt
               url
