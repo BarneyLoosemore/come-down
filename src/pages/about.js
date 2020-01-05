@@ -26,6 +26,12 @@ export const query = graphql`
 const Container = styled.div`
   margin: 24px;
   text-align: center;
+  iframe {
+    width: 100%;
+  }
+  img {
+    max-width: 100%;
+  }
 `
 
 const About = ({ data }) => {
