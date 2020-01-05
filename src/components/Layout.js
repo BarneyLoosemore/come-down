@@ -7,7 +7,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     font-family: 'Raleway', sans-serif;
-    background-size: 100%;
+    background-size: 140%;
     background-image: url(${({ backgroundImage }) =>
       backgroundImage
         ? backgroundImage
