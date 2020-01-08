@@ -13,7 +13,7 @@ const Container = styled.div`
 `
 
 const TitleContainer = styled(Container)`
-  margin-top: 30px;
+  margin-top: 40px;
   font-size: 28px;
   @media (max-width: 640px) {
     font-size: 20px;

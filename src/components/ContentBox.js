@@ -32,7 +32,7 @@ const Header = styled.div`
     font-size: 42px;
     -webkit-text-stroke-width: 2px;
   }
-  transition: color 0.1s;
+  transition: color 0.1s ease-in-out;
   :hover {
     -webkit-text-stroke-color: black;
     color: white;

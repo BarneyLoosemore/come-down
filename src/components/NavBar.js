@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
@@ -24,7 +24,7 @@ const NavLink = styled(Link)`
     color: white;
     -webkit-text-stroke-width: 0;
   }
-  transition: color 0.1s;
+  transition: color 0.1s ease-in-out;
   :hover {
     cursor: pointer;
     -webkit-text-stroke-width: 1px;
@@ -122,36 +122,33 @@ const Kofi = () => (
   </svg>
 )
 
-export const NavBar = () => {
-  const [toggle, changeToggle] = useState(false)
-  return (
-    <Container>
-      <NavLink
-        toggle={toggle}
-        onMouseEnter={() => changeToggle(!toggle)}
-        to="/about"
-      >
-        ABOUT
-      </NavLink>
-      <NavLink
-        toggle={toggle}
-        onMouseEnter={() => changeToggle(!toggle)}
-        to="/archive"
-      >
-        ARCHIVE
-      </NavLink>
+export const NavBar = () => (
+  <Container>
+    <NavLink
+      to="/about"
+      activeStyle={{ color: "white", webkitTextStrokeColor: "black" }}
+      partiallyActive
+    >
+      ABOUT
+    </NavLink>
+    <NavLink
+      to="/archive"
+      activeStyle={{ color: "white", webkitTextStrokeColor: "black" }}
+      partiallyActive
+    >
+      ARCHIVE
+    </NavLink>
 
-      <SocialMediaLink href="https://twitter.com/solasimpsonn">
-        <Twitter />
-      </SocialMediaLink>
+    <SocialMediaLink href="https://twitter.com/solasimpsonn">
+      <Twitter />
+    </SocialMediaLink>
 
-      <SocialMediaLink href="https://www.instagram.com/solasimpson/?hl=en">
-        <Instagram />
-      </SocialMediaLink>
+    <SocialMediaLink href="https://www.instagram.com/solasimpson/?hl=en">
+      <Instagram />
+    </SocialMediaLink>
 
-      <SocialMediaLink href="https://ko-fi.com/solasimpson?fbclid=IwAR2m_f9V6p0UpVwxVA9aggAfnNZStH-VNSQdbmNkHO_BYvrw-_kUOZxe54M">
-        <Kofi />
-      </SocialMediaLink>
-    </Container>
-  )
-}
+    <SocialMediaLink href="https://ko-fi.com/solasimpson?fbclid=IwAR2m_f9V6p0UpVwxVA9aggAfnNZStH-VNSQdbmNkHO_BYvrw-_kUOZxe54M">
+      <Kofi />
+    </SocialMediaLink>
+  </Container>
+)

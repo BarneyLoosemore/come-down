@@ -23,6 +23,8 @@ const NavButtonsContainer = styled(Container)`
 `
 
 const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
   display: flex;
   justify-content: center;
   width: 25%;
@@ -78,6 +80,7 @@ export const PageNavigation = ({ currentUid, pageContent, pageTitle }) => {
 
   const handleContentClick = ({ clientX }) => {
     const windowWidth = typeof window !== "undefined" ? window.innerWidth : null
+
     if (!windowWidth) {
       return
     }
