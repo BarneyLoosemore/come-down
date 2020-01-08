@@ -11,14 +11,30 @@ const StyledLink = styled(Link)`
   justify-content: center;
   flex-direction: row;
   text-decoration: none;
-  color: #303030;
-  margin: 32px;
-
+  color: black;
+  width: 400px;
+  margin: 32px auto;
   font-size: 24px;
+  justify-content: space-between;
   :hover {
     cursor: pointer;
     opacity: 0.7;
   }
+  @media (max-width: 640px) {
+    width: 250px;
+    font-size: 18px;
+    img {
+      width: 75px;
+      height: 75px;
+    }
+  }
+`
+
+const ArchiveImage = styled.img`
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 1px solid black;
 `
 
 export const query = graphql`
@@ -58,8 +74,9 @@ const Archive = ({ data }) => {
     <Layout>
       <SEO title="Archive" />
       <ContentBox>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ marginTop: "40px" }} />
+        <div
+          style={{ display: "flex", flexDirection: "column", margin: "40px 0" }}
+        >
           {sortedPages.map(
             ({
               node: {
@@ -69,15 +86,7 @@ const Archive = ({ data }) => {
             }) => (
               <StyledLink key={uid} to={`/${uid}`}>
                 {pageTitle.text}
-                <img
-                  style={{
-                    width: "10%",
-                    height: "10%",
-                    border: "2px solid black",
-                    marginLeft: "30px",
-                  }}
-                  src={pageContent.url}
-                />
+                <ArchiveImage src={pageContent.url} />
               </StyledLink>
             )
           )}
