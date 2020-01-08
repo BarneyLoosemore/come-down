@@ -7,12 +7,12 @@ import { LoadingSpinner } from "./LoadingSpinner"
 
 const ContentContainer = styled.div`
   display: flex;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   flex-direction: column;
   background-color: white;
   box-shadow: 15px 15px;
-  @media (max-width: 920px) {
+  @media (max-width: 1000px) {
     box-shadow: none;
   }
 `
@@ -22,17 +22,20 @@ const Container = styled.div`
 `
 
 const Header = styled.div`
-  color: white;
-  font-size: 48px;
+  color: black;
+  font-size: 64px;
   font-weight: 800;
-  transition: opacity 0.1s;
   text-align: center;
-
-  text-shadow: -2px -2px 6px rgba(255, 255, 255, 0.5),
-    2px 2px 6px rgba(0, 0, 0, 0.4);
-
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: white;
+  @media (max-width: 640px) {
+    font-size: 42px;
+    -webkit-text-stroke-width: 2px;
+  }
+  transition: color 0.1s;
   :hover {
-    opacity: 0.7;
+    -webkit-text-stroke-color: black;
+    color: white;
   }
 `
 

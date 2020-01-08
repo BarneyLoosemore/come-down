@@ -14,15 +14,22 @@ const Container = styled.div`
 
 const NavLink = styled(Link)`
   text-decoration: none;
-  font-size: 24px;
-  color: white;
+  font-size: 32px;
+  font-weight: 800;
+  color: black;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
   @media (max-width: 640px) {
     font-size: 18px;
+    color: white;
+    -webkit-text-stroke-width: 0;
   }
   transition: color 0.1s;
   :hover {
     cursor: pointer;
-    color: ${({ toggle }) => (toggle ? "#F3BF4E" : "#DD3976")};
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    color: white;
   }
 `
 
