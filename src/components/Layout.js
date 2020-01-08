@@ -3,15 +3,15 @@ import { createGlobalStyle } from "styled-components"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
+import comedownBackgroundImage from "../images/ComedownBackground.jpg"
+
 const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     font-family: 'Raleway', sans-serif;
     background-size: 140%;
     background-image: url(${({ backgroundImage }) =>
-      backgroundImage
-        ? backgroundImage
-        : "https://images.prismic.io/comedown/bf526cb0-331d-4fb1-9068-5ab2563e04d8_ComedownBackground.jpg?auto=compress,format"});
+      backgroundImage ? backgroundImage : comedownBackgroundImage});
   }
   h1 {
     font-size: 2em;
