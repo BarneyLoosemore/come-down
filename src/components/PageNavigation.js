@@ -7,6 +7,10 @@ import { useKey } from "../hooks/useKey"
 const Container = styled.div`
   display: flex;
   justify-content: center;
+  margin: 40px;
+  @media (max-width: 640px) {
+    margin: 28px 28px 0;
+  }
 `
 
 const NavButtonsContainer = styled(Container)`
@@ -85,7 +89,7 @@ export const PageNavigation = ({ currentUid, pageContent, pageTitle }) => {
 
   return (
     <>
-      <Container style={{ margin: "30px" }}>
+      <Container>
         <ComicPageContent
           onClick={handleContentClick}
           src={pageContent.url}
