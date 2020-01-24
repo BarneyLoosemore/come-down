@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `Come Down | Sola Simpson`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `Come Down - a comic by Sola Simpson`,
+    author: `@barneyloosemore`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -40,6 +40,12 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-styled-components`,
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID || "none",
+      },
     },
   ],
 }

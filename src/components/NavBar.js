@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
+import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
 const Container = styled.div`
   display: flex;
@@ -31,6 +32,18 @@ const Header = styled(Link).attrs(() => ({
   }
 `
 
+const LinkContainer = styled.div`
+  display: flex;
+  width: 40%;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: 900px) {
+    width: 100%;
+    justify-content: space-evenly;
+    margin-top: 16px;
+  }
+`
+
 const NavLink = styled(Link)`
   text-decoration: none;
   font-size: 24px;
@@ -57,17 +70,25 @@ const SocialMediaLink = styled.a.attrs(() => ({
   }
 `
 
-const LinkContainer = styled.div`
-  display: flex;
-  width: 40%;
-  align-items: center;
-  justify-content: space-between;
-  @media (max-width: 900px) {
-    width: 100%;
-    justify-content: space-evenly;
-    margin-top: 16px;
+const ExternalLink = ({ href, children }) => {
+  const trackExternalClick = e => {
+    e.preventDefault()
+    trackCustomEvent({
+      category: "External Link",
+      action: "Click",
+      label: href,
+    })
   }
-`
+  return (
+    <SocialMediaLink
+      onClick={trackExternalClick}
+      href={href}
+      disabled={disabled}
+    >
+      {children}
+    </SocialMediaLink>
+  )
+}
 
 const Instagram = () => (
   <svg
@@ -169,17 +190,17 @@ export const NavBar = () => (
         ARCHIVE
       </NavLink>
 
-      <SocialMediaLink href="https://twitter.com/solasimpsonn">
+      <ExternalLink href="https://twitter.com/solasimpsonn">
         <Twitter />
-      </SocialMediaLink>
+      </ExternalLink>
 
-      <SocialMediaLink href="https://www.instagram.com/solasimpson/?hl=en">
+      <ExternalLink href="https://www.instagram.com/solasimpson/?hl=en">
         <Instagram />
-      </SocialMediaLink>
+      </ExternalLink>
 
-      <SocialMediaLink href="https://ko-fi.com/solasimpson?fbclid=IwAR2m_f9V6p0UpVwxVA9aggAfnNZStH-VNSQdbmNkHO_BYvrw-_kUOZxe54M">
+      <ExternalLink href="https://ko-fi.com/solasimpson?fbclid=IwAR2m_f9V6p0UpVwxVA9aggAfnNZStH-VNSQdbmNkHO_BYvrw-_kUOZxe54M">
         <Kofi />
-      </SocialMediaLink>
+      </ExternalLink>
     </LinkContainer>
   </Container>
 )
