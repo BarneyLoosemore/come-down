@@ -80,11 +80,7 @@ const ExternalLink = ({ href, children }) => {
     })
   }
   return (
-    <SocialMediaLink
-      onClick={trackExternalClick}
-      href={href}
-      disabled={disabled}
-    >
+    <SocialMediaLink onClick={trackExternalClick} href={href}>
       {children}
     </SocialMediaLink>
   )
@@ -166,10 +162,6 @@ const Kofi = () => (
     />
   </svg>
 )
-
-const RightContainer = styled.div`
-  display: flex;
-`
 
 export const NavBar = () => (
   <Container>
