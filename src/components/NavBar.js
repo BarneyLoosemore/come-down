@@ -8,28 +8,40 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
-  height: 70px;
-  background-color: #303030;
+  margin: 32px 0;
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
+`
+
+const Header = styled(Link).attrs(() => ({
+  to: "/",
+}))`
+  text-decoration: none;
+  color: white;
+  font-size: 64px;
+  font-weight: 800;
+  text-align: center;
+  @media (max-width: 640px) {
+    font-size: 42px;
+  }
+  transition: opacity 0.1s ease-in-out;
+  :hover {
+    opacity: 0.7;
+  }
 `
 
 const NavLink = styled(Link)`
   text-decoration: none;
-  font-size: 32px;
-  font-weight: 800;
-  color: black;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: white;
+  font-size: 24px;
+  font-weight: 500;
+  color: white;
   @media (max-width: 640px) {
     font-size: 18px;
-    color: white;
-    -webkit-text-stroke-width: 0;
   }
-  transition: color 0.1s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
   :hover {
-    cursor: pointer;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-    color: white;
+    opacity: 0.7;
   }
 `
 
@@ -42,6 +54,18 @@ const SocialMediaLink = styled.a.attrs(() => ({
   transition: opacity 0.1s;
   :hover {
     opacity: 0.7;
+  }
+`
+
+const LinkContainer = styled.div`
+  display: flex;
+  width: 40%;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: 900px) {
+    width: 100%;
+    justify-content: space-evenly;
+    margin-top: 16px;
   }
 `
 
@@ -122,33 +146,40 @@ const Kofi = () => (
   </svg>
 )
 
+const RightContainer = styled.div`
+  display: flex;
+`
+
 export const NavBar = () => (
   <Container>
-    <NavLink
-      to="/about"
-      activeStyle={{ color: "white", webkitTextStrokeColor: "black" }}
-      partiallyActive
-    >
-      ABOUT
-    </NavLink>
-    <NavLink
-      to="/archive"
-      activeStyle={{ color: "white", webkitTextStrokeColor: "black" }}
-      partiallyActive
-    >
-      ARCHIVE
-    </NavLink>
+    <Header>Come Down</Header>
+    <LinkContainer>
+      <NavLink
+        to="/about"
+        activeStyle={{ color: "white", webkitTextStrokeColor: "black" }}
+        partiallyActive
+      >
+        ABOUT
+      </NavLink>
+      <NavLink
+        to="/archive"
+        activeStyle={{ color: "white", webkitTextStrokeColor: "black" }}
+        partiallyActive
+      >
+        ARCHIVE
+      </NavLink>
 
-    <SocialMediaLink href="https://twitter.com/solasimpsonn">
-      <Twitter />
-    </SocialMediaLink>
+      <SocialMediaLink href="https://twitter.com/solasimpsonn">
+        <Twitter />
+      </SocialMediaLink>
 
-    <SocialMediaLink href="https://www.instagram.com/solasimpson/?hl=en">
-      <Instagram />
-    </SocialMediaLink>
+      <SocialMediaLink href="https://www.instagram.com/solasimpson/?hl=en">
+        <Instagram />
+      </SocialMediaLink>
 
-    <SocialMediaLink href="https://ko-fi.com/solasimpson?fbclid=IwAR2m_f9V6p0UpVwxVA9aggAfnNZStH-VNSQdbmNkHO_BYvrw-_kUOZxe54M">
-      <Kofi />
-    </SocialMediaLink>
+      <SocialMediaLink href="https://ko-fi.com/solasimpson?fbclid=IwAR2m_f9V6p0UpVwxVA9aggAfnNZStH-VNSQdbmNkHO_BYvrw-_kUOZxe54M">
+        <Kofi />
+      </SocialMediaLink>
+    </LinkContainer>
   </Container>
 )

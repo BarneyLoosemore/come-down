@@ -7,10 +7,7 @@ import { useKey } from "../hooks/useKey"
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  margin: 40px;
-  @media (max-width: 640px) {
-    margin: 28px 28px 0;
-  }
+  margin: 20px;
 `
 
 const NavButtonsContainer = styled(Container)`
@@ -39,7 +36,6 @@ const StyledLink = styled(Link)`
 const ComicPageContent = styled.img`
   width: 100%;
   height: 100%;
-  border: 4px solid black;
 `
 
 const getPageUids = data =>
@@ -78,26 +74,10 @@ export const PageNavigation = ({ currentUid, pageContent, pageTitle }) => {
     navigate(`/${nextPage}`)
   }
 
-  const handleContentClick = ({ clientX }) => {
-    const windowWidth = typeof window !== "undefined" ? window.innerWidth : null
-
-    if (!windowWidth) {
-      return
-    }
-
-    clientX < windowWidth / 2
-      ? navigate(notFirstPage ? currentUid - 1 : currentUid)
-      : navigate(notLastPage ? currentUid + 1 : currentUid)
-  }
-
   return (
     <>
       <Container>
-        <ComicPageContent
-          onClick={handleContentClick}
-          src={pageContent.url}
-          alt={pageTitle}
-        />
+        <ComicPageContent src={pageContent.url} alt={pageTitle} />
       </Container>
       <NavButtonsContainer>
         <StyledLink to={`/${firstPage}`} disabled={!notFirstPage}>

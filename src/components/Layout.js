@@ -3,15 +3,22 @@ import { createGlobalStyle } from "styled-components"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import comedownBackgroundImage from "../images/ComedownBackground.jpg"
+import SubtractSubtractBG from "../images/SubtractSubtractBG.png"
 
 const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     font-family: 'Raleway', sans-serif;
-    background-size: 140%;
-    background-image: url(${({ backgroundImage }) =>
-      backgroundImage ? backgroundImage : comedownBackgroundImage});
+    background-size: 100%;
+    background-image: url(${SubtractSubtractBG});
+    background-color: #232323;
+    background-repeat: no-repeat;
+    @media(max-width: 1000px){
+      background-image: none;
+    }
+  }
+  main {
+    height: 100%;
   }
   h1 {
     font-size: 2em;
