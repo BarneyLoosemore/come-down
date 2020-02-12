@@ -71,8 +71,7 @@ const SocialMediaLink = styled.a.attrs(() => ({
 `
 
 const ExternalLink = ({ href, children }) => {
-  const trackExternalClick = e => {
-    e.preventDefault()
+  const trackExternalClick = () => {
     trackCustomEvent({
       category: "External Link",
       action: "Click",
