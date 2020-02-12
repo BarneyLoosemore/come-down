@@ -17,7 +17,6 @@ const StyledLink = styled(Link)`
   font-size: 24px;
   justify-content: space-between;
   :hover {
-    cursor: pointer;
     opacity: 0.7;
   }
   @media (max-width: 640px) {
@@ -66,8 +65,8 @@ const Archive = ({ data }) => {
     return null
   }
 
-  const sortedPages = data.allPrismicPage.edges.sort((a, b) =>
-    a.node.uid > b.node.uid ? 1 : -1
+  const sortedPages = data.allPrismicPage.edges.sort(
+    (a, b) => a.node.uid - b.node.uid
   )
 
   return (

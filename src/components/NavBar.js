@@ -167,18 +167,10 @@ export const NavBar = () => (
   <Container>
     <Header>Come Down</Header>
     <LinkContainer>
-      <NavLink
-        to="/about"
-        activeStyle={{ color: "white", webkitTextStrokeColor: "black" }}
-        partiallyActive
-      >
+      <NavLink to="/about" activeStyle={{ color: "grey" }} partiallyActive>
         ABOUT
       </NavLink>
-      <NavLink
-        to="/archive"
-        activeStyle={{ color: "white", webkitTextStrokeColor: "black" }}
-        partiallyActive
-      >
+      <NavLink to="/archive" activeStyle={{ color: "grey" }} partiallyActive>
         ARCHIVE
       </NavLink>
 
