@@ -15,7 +15,6 @@ const StyledLink = styled(Link)`
   width: 400px;
   margin: 32px auto;
   font-size: 24px;
-  justify-content: space-between;
   :hover {
     opacity: 0.7;
   }
@@ -27,13 +26,6 @@ const StyledLink = styled(Link)`
       height: 75px;
     }
   }
-`
-
-const ArchiveImage = styled.img`
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border: 1px solid black;
 `
 
 export const query = graphql`
@@ -76,19 +68,11 @@ const Archive = ({ data }) => {
         <div
           style={{ display: "flex", flexDirection: "column", margin: "40px 0" }}
         >
-          {sortedPages.map(
-            ({
-              node: {
-                uid,
-                data: { pageTitle, pageContent },
-              },
-            }) => (
-              <StyledLink key={uid} to={`/${uid}`}>
-                {pageTitle.text}
-                <ArchiveImage src={pageContent.url} />
-              </StyledLink>
-            )
-          )}
+          {sortedPages.map(({ node: { uid, data: { pageTitle } } }) => (
+            <StyledLink key={uid} to={`/${uid}`}>
+              {pageTitle.text}
+            </StyledLink>
+          ))}
         </div>
       </ContentBox>
     </Layout>

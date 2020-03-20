@@ -24,7 +24,7 @@ export const query = graphql`
 `
 
 const Container = styled.div`
-  margin: 24px;
+  margin: 24px 48px;
   text-align: center;
   iframe {
     width: 100%;
