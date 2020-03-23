@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "comedown",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Comedown web comic by Sola Simpson",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Barney Loosemore",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.6",
     "gatsby": "^2.18.12",
@@ -15,9 +15,10 @@
     "gatsby-plugin-sharp": "^2.3.5",
     "gatsby-plugin-styled-components": "^3.1.16",
     "gatsby-source-filesystem": "^2.1.40",
-    "gatsby-source-prismic": "^2.3.0-alpha.3",
+    "gatsby-source-prismic": "2.3.0-alpha.3",
     "gatsby-source-prismic-graphql": "^3.3.1",
     "gatsby-transformer-sharp": "^2.3.7",
+    "graphql": "^14.6.0",
     "html-react-parser": "^0.10.0",
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^2.1.5",
@@ -28,6 +29,9 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "styled-components": "^4.4.1"
+  },
+  "resolutions": {
+    "graphql": "^14.6.0"
   },
   "devDependencies": {
     "prettier": "^1.19.1"
