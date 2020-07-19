@@ -3,73 +3,6 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 100%;
-  margin: 32px 0;
-  @media (max-width: 900px) {
-    flex-direction: column;
-  }
-`
-
-const Header = styled(Link).attrs(() => ({
-  to: "/",
-}))`
-  text-decoration: none;
-  color: white;
-  font-size: 64px;
-  font-weight: 800;
-  text-align: center;
-  @media (max-width: 640px) {
-    font-size: 42px;
-  }
-  transition: opacity 0.1s ease-in-out;
-  :hover {
-    opacity: 0.7;
-  }
-`
-
-const LinkContainer = styled.div`
-  display: flex;
-  width: 40%;
-  align-items: center;
-  justify-content: space-between;
-  @media (max-width: 900px) {
-    width: 100%;
-    justify-content: space-evenly;
-    margin-top: 16px;
-  }
-`
-
-const NavLink = styled(Link)`
-  text-decoration: none;
-  font-size: 24px;
-  font-weight: 500;
-  color: white;
-  @media (max-width: 640px) {
-    font-size: 18px;
-  }
-  transition: opacity 0.1s ease-in-out;
-  :hover {
-    opacity: 0.7;
-  }
-`
-
-const SocialMediaLink = styled.a.attrs(() => ({
-  target: "_blank",
-  rel: "noopener noreferrer",
-}))`
-  display: flex;
-  align-items: center;
-  transition: opacity 0.1s;
-  :hover {
-    opacity: 0.7;
-  }
-`
-
 const ExternalLink = ({ href, children }) => {
   const trackExternalClick = () => {
     trackCustomEvent({
@@ -169,9 +102,13 @@ export const NavBar = () => (
       <NavLink to="/about" activeStyle={{ color: "grey" }} partiallyActive>
         ABOUT
       </NavLink>
-      <NavLink to="/archive" activeStyle={{ color: "grey" }} partiallyActive>
+      <Archive>
         ARCHIVE
-      </NavLink>
+        <ArchiveContents>
+          <ArchiveLink to="/archive/chapter-1">Chapter 1</ArchiveLink>
+          <ArchiveLink to="/archive/chapter-2">Chapter 2</ArchiveLink>
+        </ArchiveContents>
+      </Archive>
 
       <ExternalLink href="https://twitter.com/solasimpsonn">
         <Twitter />
@@ -187,3 +124,117 @@ export const NavBar = () => (
     </LinkContainer>
   </Container>
 )
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  margin: 32px 0;
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
+`
+
+const Header = styled(Link).attrs(() => ({
+  to: "/",
+}))`
+  text-decoration: none;
+  color: white;
+  font-size: 64px;
+  font-weight: 800;
+  text-align: center;
+  @media (max-width: 640px) {
+    font-size: 42px;
+  }
+  transition: opacity 0.1s ease-in-out;
+  :hover {
+    opacity: 0.7;
+  }
+`
+
+const LinkContainer = styled.div`
+  display: flex;
+  width: 40%;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: 900px) {
+    width: 100%;
+    justify-content: space-evenly;
+    margin-top: 16px;
+  }
+`
+
+const NavLink = styled(Link)`
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 500;
+  color: white;
+  @media (max-width: 640px) {
+    font-size: 18px;
+  }
+  transition: opacity 0.1s ease-in-out;
+  :hover {
+    opacity: 0.7;
+  }
+`
+
+const SocialMediaLink = styled.a.attrs(() => ({
+  target: "_blank",
+  rel: "noopener noreferrer",
+}))`
+  display: flex;
+  align-items: center;
+  transition: opacity 0.1s;
+  :hover {
+    opacity: 0.7;
+  }
+`
+
+const Archive = styled.div`
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 500;
+  color: white;
+  @media (max-width: 640px) {
+    font-size: 18px;
+  }
+  transition: opacity 0.1s ease-in-out;
+  :hover {
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+`
+const ArchiveContents = styled.div`
+  display: none;
+  position: absolute;
+  z-index: 999;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  min-width: 105px;
+  padding: 12px 0;
+  background-color: #232323;
+  @media (max-width: 640px) {
+    min-width: 0;
+    padding: 12px 6px;
+  }
+`
+
+const ArchiveLink = styled(Link)`
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  margin: 4px;
+  transition: opacity 0.1s ease-in-out;
+  :hover {
+    opacity: 0.7;
+  }
+  @media (max-width: 640px) {
+    font-size: 14px;
+  }
+`

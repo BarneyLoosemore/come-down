@@ -1,10 +1,10 @@
 import React from "react"
 import styled from "styled-components"
-import { Link, graphql } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 
-import { Layout } from "../components/Layout"
-import { SEO } from "../components/SEO"
-import { ContentBox } from "../components/ContentBox"
+import { Layout } from "../../components/Layout"
+import { SEO } from "../../components/SEO"
+import { ContentBox } from "../../components/ContentBox"
 
 const StyledLink = styled(Link)`
   display: flex;
@@ -13,7 +13,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: black;
   width: 400px;
-  margin: 32px auto;
+  margin: 16px auto;
   font-size: 24px;
   :hover {
     opacity: 0.7;
@@ -24,30 +24,6 @@ const StyledLink = styled(Link)`
     img {
       width: 75px;
       height: 75px;
-    }
-  }
-`
-
-export const query = graphql`
-  query ArchiveQuery {
-    allPrismicPage {
-      edges {
-        node {
-          data {
-            pageTitle: page_title {
-              text
-            }
-            pageContent: page_content {
-              dimensions {
-                height
-                width
-              }
-              url
-            }
-          }
-          uid
-        }
-      }
     }
   }
 `
@@ -78,5 +54,37 @@ const Archive = ({ data }) => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  query ArchiveQueryChapter1 {
+    allPrismicPage(
+      filter: {
+        data: {
+          page_title: {
+            text: { regex: "/Chapter 01|Chapter 1|chapter 01|chapter 1/" }
+          }
+        }
+      }
+    ) {
+      edges {
+        node {
+          data {
+            pageTitle: page_title {
+              text
+            }
+            pageContent: page_content {
+              dimensions {
+                height
+                width
+              }
+              url
+            }
+          }
+          uid
+        }
+      }
+    }
+  }
+`
 
 export default Archive
