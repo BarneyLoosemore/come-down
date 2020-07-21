@@ -20,8 +20,8 @@ const ExternalLink = ({ href, children }) => {
 
 const Instagram = () => (
   <svg
-    width="3em"
-    height="3em"
+    width="2.2em"
+    height="2.2em"
     viewBox="0 0 200 210"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -43,8 +43,8 @@ const Instagram = () => (
 
 const Twitter = () => (
   <svg
-    width="3em"
-    height="3em"
+    width="2.2em"
+    height="2.2em"
     viewBox="0 0 216 175"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -59,8 +59,8 @@ const Twitter = () => (
 const Kofi = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    height="3em"
-    width="3em"
+    height="2.2em"
+    width="2.2em"
     viewBox="0 0 65 65"
   >
     <g fill="none" transform="matrix(1.9656019 0 0 1.9656019 0 -.0000006)">
