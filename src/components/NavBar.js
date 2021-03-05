@@ -107,6 +107,7 @@ export const NavBar = () => (
         <ArchiveContents>
           <ArchiveLink to="/archive/chapter-1">Chapter 1</ArchiveLink>
           <ArchiveLink to="/archive/chapter-2">Chapter 2</ArchiveLink>
+          <ArchiveLink to="/archive/chapter-3">Chapter 3</ArchiveLink>
         </ArchiveContents>
       </Archive>
 
@@ -192,11 +193,15 @@ const SocialMediaLink = styled.a.attrs(() => ({
   }
 `
 
-const Archive = styled.div`
+const Archive = styled(Link)`
   text-decoration: none;
   font-size: 24px;
   font-weight: 500;
   color: white;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
   @media (max-width: 640px) {
     font-size: 18px;
   }
@@ -207,6 +212,16 @@ const Archive = styled.div`
       flex-direction: column;
       justify-content: center;
       align-items: center;
+    }
+  }
+  @media (min-width: 640px) {
+    :focus {
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
     }
   }
 `

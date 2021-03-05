@@ -3,14 +3,14 @@ import { createGlobalStyle } from "styled-components"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import SubtractSubtractBG from "../images/SubtractSubtractBG.png"
+import BackgroundImage from "../images/SubtractBG.png"
 
 const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     font-family: 'Raleway', sans-serif;
     background-size: 100%;
-    background-image: url(${SubtractSubtractBG});
+    background-image: url(${BackgroundImage});
     background-color: #232323;
     background-repeat: no-repeat;
     @media(max-width: 1000px){

@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import PropTypes from "prop-types"
 import { Link, graphql, useStaticQuery, navigate } from "gatsby"
 
 import { useKey } from "../hooks/useKey"
@@ -95,4 +96,10 @@ export const PageNavigation = ({ currentUid, pageContent, pageTitle }) => {
       </NavButtonsContainer>
     </>
   )
+}
+
+PageNavigation.propTypes = {
+  currentUid: PropTypes.number,
+  pageContent: PropTypes.shape({}),
+  pageTitle: PropTypes.string,
 }

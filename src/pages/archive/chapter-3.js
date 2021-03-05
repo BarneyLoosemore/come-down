@@ -3,12 +3,12 @@ import { graphql } from "gatsby"
 export { Archive as default } from "../../components/Archive"
 
 export const query = graphql`
-  query ArchiveQueryChapter2 {
+  query ArchiveQueryChapter3 {
     allPrismicPage(
       filter: {
         data: {
           page_title: {
-            text: { regex: "/Chapter 02|Chapter 2|chapter 02|chapter 2/" }
+            text: { regex: "/Chapter 03|Chapter 3|chapter 03|chapter 3/" }
           }
         }
       }

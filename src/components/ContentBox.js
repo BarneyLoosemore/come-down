@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import PropTypes from "prop-types"
 
 import { NavBar } from "./NavBar"
 import { LoadingSpinner } from "./LoadingSpinner"
@@ -38,3 +39,7 @@ export const ContentBox = ({ children }) => (
     </ContentContainer>
   </>
 )
+
+ContentBox.propTypes = {
+  children: PropTypes.node,
+}
