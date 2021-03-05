@@ -20,8 +20,8 @@ const ExternalLink = ({ href, children }) => {
 
 const Instagram = () => (
   <svg
-    width="2.2em"
-    height="2.2em"
+    width="1.7em"
+    height="1.7em"
     viewBox="0 0 200 210"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -43,8 +43,8 @@ const Instagram = () => (
 
 const Twitter = () => (
   <svg
-    width="2.2em"
-    height="2.2em"
+    width="1.7em"
+    height="1.7em"
     viewBox="0 0 216 175"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -59,8 +59,8 @@ const Twitter = () => (
 const Kofi = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    height="2.2em"
-    width="2.2em"
+    height="1.7em"
+    width="1.7em"
     viewBox="0 0 65 65"
   >
     <g fill="none" transform="matrix(1.9656019 0 0 1.9656019 0 -.0000006)">
@@ -103,7 +103,7 @@ export const NavBar = () => (
         ABOUT
       </NavLink>
       <Archive>
-        ARCHIVE
+        <div>ARCHIVE</div>
         <ArchiveContents>
           <ArchiveLink to="/archive/chapter-1">Chapter 1</ArchiveLink>
           <ArchiveLink to="/archive/chapter-2">Chapter 2</ArchiveLink>
@@ -135,6 +135,7 @@ const Container = styled.div`
   margin: 32px 0;
   @media (max-width: 900px) {
     flex-direction: column;
+    margin: 24px 0;
   }
 `
 
@@ -143,11 +144,11 @@ const Header = styled(Link).attrs(() => ({
 }))`
   text-decoration: none;
   color: white;
-  font-size: 64px;
+  font-size: 48px;
   font-weight: 800;
   text-align: center;
   @media (max-width: 640px) {
-    font-size: 42px;
+    font-size: 28px;
   }
   transition: opacity 0.1s ease-in-out;
   :hover {
@@ -169,11 +170,11 @@ const LinkContainer = styled.div`
 
 const NavLink = styled(Link)`
   text-decoration: none;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
   color: white;
   @media (max-width: 640px) {
-    font-size: 18px;
+    font-size: 14px;
   }
   transition: opacity 0.1s ease-in-out;
   :hover {
@@ -195,7 +196,7 @@ const SocialMediaLink = styled.a.attrs(() => ({
 
 const Archive = styled(Link)`
   text-decoration: none;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
   color: white;
   border: none;
@@ -203,10 +204,13 @@ const Archive = styled(Link)`
   padding: 0;
   cursor: pointer;
   @media (max-width: 640px) {
-    font-size: 18px;
+    font-size: 14px;
   }
   transition: opacity 0.1s ease-in-out;
   :hover {
+    div:nth-of-type(1) {
+      opacity: 0.7;
+    }
     div {
       display: flex;
       flex-direction: column;
@@ -216,6 +220,7 @@ const Archive = styled(Link)`
   }
   @media (min-width: 640px) {
     :focus {
+      opacity: 0.7;
       div {
         display: flex;
         flex-direction: column;
@@ -232,7 +237,7 @@ const ArchiveContents = styled.div`
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   min-width: 105px;
   padding: 12px 0;
-  background-color: #232323;
+  background: #121212;
   @media (max-width: 640px) {
     min-width: 0;
     padding: 12px 6px;

@@ -11,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Raleway', sans-serif;
     background-size: 100%;
     background-image: url(${BackgroundImage});
-    background-color: #232323;
+    background-color: #121212;
     background-repeat: no-repeat;
     @media(max-width: 1000px){
       background-image: none;

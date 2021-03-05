@@ -53,7 +53,7 @@ export const Archive = ({ data }) => {
               </StyledLink>
             ))
           ) : (
-            <h1 style={{ margin: "0 auto", color: "#232323" }}>
+            <h1 style={{ margin: "0 auto", color: "#121212" }}>
               No pages found for chapter
             </h1>
           )}
