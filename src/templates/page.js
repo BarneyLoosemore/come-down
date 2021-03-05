@@ -14,9 +14,9 @@ const Container = styled.div`
 
 const TitleContainer = styled(Container)`
   margin-top: 40px;
-  font-size: 28px;
+  font-size: 24px;
   @media (max-width: 640px) {
-    font-size: 20px;
+    font-size: 16px;
   }
 `
 
