@@ -115,7 +115,7 @@ export const NavBar = () => (
         <Twitter />
       </ExternalLink>
 
-      <ExternalLink href="https://www.instagram.com/solasimpson/?hl=en">
+      <ExternalLink href="https://www.instagram.com/solasimpsonart">
         <Instagram />
       </ExternalLink>
 
