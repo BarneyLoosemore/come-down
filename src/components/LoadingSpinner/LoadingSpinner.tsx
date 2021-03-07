@@ -1,6 +1,14 @@
 import React from "react"
 import styled, { keyframes } from "styled-components"
 
+export const LoadingSpinner: React.FC = () => (
+  <DotContainer>
+    <Dot delay={0.4} />
+    <Dot delay={0.6} />
+    <Dot delay={0.8} />
+  </DotContainer>
+)
+
 const blink = keyframes`
   0% {
     opacity: 1;
@@ -39,11 +47,3 @@ const DotContainer = styled.div`
   display: flex;
   flex-direction: row;
 `
-
-export const LoadingSpinner = () => (
-  <DotContainer>
-    <Dot delay={0.4} />
-    <Dot delay={0.6} />
-    <Dot delay={0.8} />
-  </DotContainer>
-)

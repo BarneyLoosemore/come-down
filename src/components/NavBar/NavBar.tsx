@@ -1,15 +1,24 @@
 import React from "react"
-import { Link } from "gatsby"
-import styled from "styled-components"
-import { trackCustomEvent } from "gatsby-plugin-google-analytics"
+import { useRouter } from "next/router"
+import Image from "next/image"
+import Link from "next/link"
 
-const ExternalLink = ({ href, children }) => {
+import { ROOT_PAGE_REDIRECT } from "@constants/index"
+import {
+  Container,
+  HeaderLink,
+  About,
+  Archive,
+  LinkContainer,
+  SocialMediaLink,
+  ArchiveContents,
+  ChapterLink,
+} from "./style"
+
+const ExternalLink: React.FC<{ href: string }> = ({ href, children }) => {
   const trackExternalClick = () => {
-    trackCustomEvent({
-      category: "External Link",
-      action: "Click",
-      label: href,
-    })
+    // TODO: reimplement teacking
+    return null
   }
   return (
     <SocialMediaLink onClick={trackExternalClick} href={href}>
@@ -18,7 +27,62 @@ const ExternalLink = ({ href, children }) => {
   )
 }
 
-const Instagram = () => (
+export const NavBar: React.FC = () => {
+  const router = useRouter()
+  return (
+    <Container>
+      <Link href={ROOT_PAGE_REDIRECT}>
+        <HeaderLink>
+          <Image
+            src="/comedown-logo.png"
+            alt="Come Down comic logo"
+            width="100%"
+            height="57%"
+          />
+        </HeaderLink>
+      </Link>
+      <LinkContainer>
+        <Link href="/about">
+          <About active={router.pathname === "/about"}>ABOUT</About>
+        </Link>
+        <Archive active={router.pathname.includes("/archive")}>
+          <div>ARCHIVE</div>
+          <ArchiveContents>
+            <Link href="/archive/chapter-1">
+              <ChapterLink active={router.pathname === "/archive/chapter-1"}>
+                Chapter 1
+              </ChapterLink>
+            </Link>
+            <Link href="/archive/chapter-2">
+              <ChapterLink active={router.pathname === "/archive/chapter-2"}>
+                Chapter 2
+              </ChapterLink>
+            </Link>
+            <Link href="/archive/chapter-3">
+              <ChapterLink active={router.pathname === "/archive/chapter-3"}>
+                Chapter 3
+              </ChapterLink>
+            </Link>
+          </ArchiveContents>
+        </Archive>
+
+        <ExternalLink href="https://twitter.com/solasimpsonn">
+          <Twitter />
+        </ExternalLink>
+
+        <ExternalLink href="https://www.instagram.com/solasimpsonart">
+          <Instagram />
+        </ExternalLink>
+
+        <ExternalLink href="https://ko-fi.com/solasimpson?fbclid=IwAR2m_f9V6p0UpVwxVA9aggAfnNZStH-VNSQdbmNkHO_BYvrw-_kUOZxe54M">
+          <Kofi />
+        </ExternalLink>
+      </LinkContainer>
+    </Container>
+  )
+}
+
+const Instagram: React.FC = () => (
   <svg
     width="1.7em"
     height="1.7em"
@@ -41,7 +105,7 @@ const Instagram = () => (
   </svg>
 )
 
-const Twitter = () => (
+const Twitter: React.FC = () => (
   <svg
     width="1.7em"
     height="1.7em"
@@ -56,7 +120,7 @@ const Twitter = () => (
   </svg>
 )
 
-const Kofi = () => (
+const Kofi: React.FC = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     height="1.7em"
@@ -94,167 +158,3 @@ const Kofi = () => (
     />
   </svg>
 )
-
-export const NavBar = () => (
-  <Container>
-    <Header>Come Down</Header>
-    <LinkContainer>
-      <NavLink to="/about" activeStyle={{ color: "grey" }} partiallyActive>
-        ABOUT
-      </NavLink>
-      <Archive>
-        <div>ARCHIVE</div>
-        <ArchiveContents>
-          <ArchiveLink to="/archive/chapter-1">Chapter 1</ArchiveLink>
-          <ArchiveLink to="/archive/chapter-2">Chapter 2</ArchiveLink>
-          <ArchiveLink to="/archive/chapter-3">Chapter 3</ArchiveLink>
-        </ArchiveContents>
-      </Archive>
-
-      <ExternalLink href="https://twitter.com/solasimpsonn">
-        <Twitter />
-      </ExternalLink>
-
-      <ExternalLink href="https://www.instagram.com/solasimpsonart">
-        <Instagram />
-      </ExternalLink>
-
-      <ExternalLink href="https://ko-fi.com/solasimpson?fbclid=IwAR2m_f9V6p0UpVwxVA9aggAfnNZStH-VNSQdbmNkHO_BYvrw-_kUOZxe54M">
-        <Kofi />
-      </ExternalLink>
-    </LinkContainer>
-  </Container>
-)
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 100%;
-  margin: 32px 0;
-  @media (max-width: 900px) {
-    flex-direction: column;
-    margin: 24px 0;
-  }
-`
-
-const Header = styled(Link).attrs(() => ({
-  to: "/",
-}))`
-  text-decoration: none;
-  color: white;
-  font-size: 48px;
-  font-weight: 800;
-  text-align: center;
-  @media (max-width: 640px) {
-    font-size: 28px;
-  }
-  transition: opacity 0.1s ease-in-out;
-  :hover {
-    opacity: 0.7;
-  }
-`
-
-const LinkContainer = styled.div`
-  display: flex;
-  width: 40%;
-  align-items: center;
-  justify-content: space-between;
-  @media (max-width: 900px) {
-    width: 100%;
-    justify-content: space-evenly;
-    margin-top: 16px;
-  }
-`
-
-const NavLink = styled(Link)`
-  text-decoration: none;
-  font-size: 20px;
-  font-weight: 500;
-  color: white;
-  @media (max-width: 640px) {
-    font-size: 14px;
-  }
-  transition: opacity 0.1s ease-in-out;
-  :hover {
-    opacity: 0.7;
-  }
-`
-
-const SocialMediaLink = styled.a.attrs(() => ({
-  target: "_blank",
-  rel: "noopener noreferrer",
-}))`
-  display: flex;
-  align-items: center;
-  transition: opacity 0.1s;
-  :hover {
-    opacity: 0.7;
-  }
-`
-
-const Archive = styled(Link)`
-  text-decoration: none;
-  font-size: 20px;
-  font-weight: 500;
-  color: white;
-  border: none;
-  background: none;
-  padding: 0;
-  cursor: pointer;
-  @media (max-width: 640px) {
-    font-size: 14px;
-  }
-  transition: opacity 0.1s ease-in-out;
-  :hover {
-    div:nth-of-type(1) {
-      opacity: 0.7;
-    }
-    div {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-  @media (min-width: 640px) {
-    :focus {
-      opacity: 0.7;
-      div {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-    }
-  }
-`
-const ArchiveContents = styled.div`
-  display: none;
-  position: absolute;
-  z-index: 999;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  min-width: 105px;
-  padding: 12px 0;
-  background: #121212;
-  @media (max-width: 640px) {
-    min-width: 0;
-    padding: 12px 6px;
-  }
-`
-
-const ArchiveLink = styled(Link)`
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 500;
-  color: white;
-  margin: 4px;
-  transition: opacity 0.1s ease-in-out;
-  :hover {
-    opacity: 0.7;
-  }
-  @media (max-width: 640px) {
-    font-size: 14px;
-  }
-`
