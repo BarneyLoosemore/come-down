@@ -38,12 +38,16 @@ const sharedInternalLinkStyles = css`
   text-decoration: none;
   font-size: 20px;
   font-weight: 500;
-  color: ${({ active }) => (active ? "grey" : "white")};
   cursor: pointer;
+`
+
+const activeLinkColorStyles = css`
+  color: ${({ active }: { active: boolean }) => (active ? "grey" : "white")};
 `
 
 export const About = styled.p`
   ${sharedInternalLinkStyles};
+  ${activeLinkColorStyles};
   @media (max-width: 640px) {
     font-size: 14px;
   }
@@ -55,6 +59,7 @@ export const About = styled.p`
 
 export const Archive = styled.p`
   ${sharedInternalLinkStyles};
+  ${activeLinkColorStyles};
   border: none;
   background: none;
   @media (max-width: 640px) {
@@ -104,7 +109,7 @@ export const ChapterLink = styled.p`
   font-size: 16px;
   font-weight: 500;
   margin: 4px;
-  color: ${({ active }) => (active ? "grey" : "white")};
+  ${activeLinkColorStyles};
   transition: opacity 0.1s ease-in-out;
   :hover {
     opacity: 0.7;

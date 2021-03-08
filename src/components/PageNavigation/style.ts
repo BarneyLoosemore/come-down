@@ -11,7 +11,7 @@ export const PageNavContainer = styled.div`
   }
 `
 
-export const LinkText = styled.p`
+export const LinkText = styled.p<{ disabled: boolean }>`
   display: flex;
   justify-content: center;
   width: 25%;

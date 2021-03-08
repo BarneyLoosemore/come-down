@@ -6,6 +6,7 @@
   "author": "Barney Loosemore",
   "dependencies": {
     "@prismicio/client": "^4.0.0",
+    "@types/styled-components": "^5.1.7",
     "babel-plugin-styled-components": "^1.12.0",
     "graphql": "^15.5.0",
     "html-react-parser": "^0.10.5",
