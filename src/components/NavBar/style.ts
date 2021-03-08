@@ -25,6 +25,19 @@ export const LinkContainer = styled.div`
   }
 `
 
+export const HeaderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+export const HeaderSubText = styled.p`
+  color: white;
+  font-size: 12px;
+  max-width: 20ch;
+  line-height: 18px;
+  text-align: center;
+`
+
 export const HeaderLink = styled.div`
   transition: opacity 0.1s ease-in-out;
   margin: 8px 0;

@@ -13,7 +13,7 @@ export const ContentContainer = styled.div`
 
 export const SpinnerContainer = styled.div`
   height: 600px;
-  display: "flex";
-  justify-content: "center";
-  align-items: "center";
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `

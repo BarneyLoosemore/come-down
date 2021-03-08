@@ -6,6 +6,8 @@ import { ROOT_PAGE_REDIRECT } from "@constants/index"
 import {
   Container,
   HeaderLink,
+  HeaderSubText,
+  HeaderContainer,
   About,
   Archive,
   LinkContainer,
@@ -30,16 +32,19 @@ export const NavBar: React.FC = () => {
   const router = useRouter()
   return (
     <Container>
-      <Link href={ROOT_PAGE_REDIRECT}>
-        <HeaderLink>
-          <img
-            srcSet={`/comedown-logo.png?width=400 400w, /comedown-logo.png?width=900 900w`}
-            alt="Come Down comic logo"
-            width="125px"
-            height="70px"
-          />
-        </HeaderLink>
-      </Link>
+      <HeaderContainer>
+        <Link href={ROOT_PAGE_REDIRECT}>
+          <HeaderLink>
+            <img
+              srcSet={`/comedown-logo.png?width=400 400w, /comedown-logo.png?width=900 900w`}
+              alt="Come Down comic logo"
+              width="125px"
+              height="70px"
+            />
+          </HeaderLink>
+        </Link>
+        <HeaderSubText>New page every Monday and Friday!</HeaderSubText>
+      </HeaderContainer>
       <LinkContainer>
         <Link href="/about">
           <About active={router.pathname === "/about"}>About</About>
