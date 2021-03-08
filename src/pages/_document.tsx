@@ -7,8 +7,6 @@ import Document, {
 } from "next/document"
 import { ServerStyleSheet } from "styled-components"
 
-import { Footer } from "@components/Footer"
-
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet()
@@ -49,7 +47,6 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <Footer />
         </body>
       </Html>
     )
