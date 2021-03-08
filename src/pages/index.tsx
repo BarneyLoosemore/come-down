@@ -4,7 +4,7 @@ export default () => {
   const router = useRouter()
 
   // for requests to '/', we redirect to the first page of the latest chapter
-  router.replace("/pages/49")
+  typeof window !== "undefined" && router.replace("/pages/49")
   return null
 }
 
