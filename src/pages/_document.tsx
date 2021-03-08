@@ -7,7 +7,7 @@ import Document, {
 } from "next/document"
 import { ServerStyleSheet } from "styled-components"
 
-import { GlobalStyles } from "../utils/globalStyles"
+import { Footer } from "@components/Footer"
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -39,7 +39,6 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <GlobalStyles />
           <link rel="preconnect" href="https://fonts.gstatic.com"></link>
           <link rel="shortcut icon" href="/static/comedown-favicon.png" />
           <link
@@ -50,16 +49,7 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <footer
-            style={{
-              paddingTop: "48px",
-              margin: "8px",
-              color: "white",
-              fontSize: "14px",
-            }}
-          >
-            Come down | Sola Simpson
-          </footer>
+          <Footer />
         </body>
       </Html>
     )

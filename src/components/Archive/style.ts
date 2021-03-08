@@ -28,3 +28,8 @@ export const LinksContainer = styled.div`
   flex-direction: column;
   margin: 40px 0;
 `
+
+export const NoChapterHeader = styled.h1`
+  margin: 0 auto;
+  color: #121212;
+`

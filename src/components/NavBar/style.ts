@@ -14,7 +14,7 @@ export const Container = styled.div`
 `
 
 export const LinkContainer = styled.div`
-  display: flex;
+  display: flex !important;
   width: 40%;
   align-items: center;
   justify-content: space-between;
@@ -25,9 +25,9 @@ export const LinkContainer = styled.div`
   }
 `
 
-export const HeaderLink = styled.p`
+export const HeaderLink = styled.div`
   transition: opacity 0.1s ease-in-out;
-  margin: 16px 0;
+  margin: 8px 0;
   :hover {
     opacity: 0.7;
     cursor: pointer;
@@ -96,6 +96,7 @@ export const ArchiveContents = styled.div`
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   min-width: 105px;
   padding: 12px 0;
+  margin-left: -10px;
   background: #121212;
   @media (max-width: 640px) {
     min-width: 0;

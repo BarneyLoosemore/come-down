@@ -3,7 +3,7 @@ import Link from "next/link"
 
 import { ContentBox } from "@components/ContentBox"
 
-import { LinkText, LinksContainer } from "./style"
+import { LinkText, LinksContainer, NoChapterHeader } from "./style"
 
 type Page = {
   id: string
@@ -30,9 +30,7 @@ export const Archive: React.FC<ArchiveProps> = ({ pages }) => {
             </Link>
           ))
         ) : (
-          <h1 style={{ margin: "0 auto", color: "#121212" }}>
-            No pages found for this chapter
-          </h1>
+          <NoChapterHeader>No pages found for this chapter</NoChapterHeader>
         )}
       </LinksContainer>
     </ContentBox>

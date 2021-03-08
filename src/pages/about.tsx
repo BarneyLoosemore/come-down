@@ -8,13 +8,13 @@ import { ContentBox } from "@components/ContentBox"
 import { Client } from "../../prismic-configuration"
 
 const Container = styled.div`
-  margin: 24px 48px;
+  margin: 0 auto;
+  padding: 16px;
+  max-width: 60ch;
   text-align: center;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  max-width: 60ch;
-  margin: 0 auto;
   p {
     font-family: Arial, Helvetica, sans-serif;
     margin: 8px;

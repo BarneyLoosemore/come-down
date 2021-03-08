@@ -2,6 +2,8 @@ import React, { useEffect } from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
 
+import { isMobile } from "@utils/isMobile"
+
 import { PageNavContainer, LinkText } from "./style"
 
 type NavigationLinkProps = {
@@ -15,7 +17,7 @@ const NavigationLink: React.FC<NavigationLinkProps> = ({
   text,
   disabled,
 }) => (
-  <Link href={`/pages/${page}`}>
+  <Link href={`/pages/${page}`} scroll={!isMobile()}>
     <LinkText disabled={disabled}>{text}</LinkText>
   </Link>
 )

@@ -43,24 +43,24 @@ export const NavBar: React.FC = () => {
       </Link>
       <LinkContainer>
         <Link href="/about">
-          <About active={router.pathname === "/about"}>ABOUT</About>
+          <About active={router.pathname === "/about"}>About</About>
         </Link>
         <Archive active={router.pathname.includes("/archive")}>
-          <div>ARCHIVE</div>
+          <div>Archive</div>
           <ArchiveContents>
             <Link href="/archive/chapter-1">
               <ChapterLink active={router.pathname === "/archive/chapter-1"}>
-                Chapter 1
+                chapter 1
               </ChapterLink>
             </Link>
             <Link href="/archive/chapter-2">
               <ChapterLink active={router.pathname === "/archive/chapter-2"}>
-                Chapter 2
+                chapter 2
               </ChapterLink>
             </Link>
             <Link href="/archive/chapter-3">
               <ChapterLink active={router.pathname === "/archive/chapter-3"}>
-                Chapter 3
+                chapter 3
               </ChapterLink>
             </Link>
           </ArchiveContents>
