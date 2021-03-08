@@ -1,5 +1,4 @@
 import React from "react"
-import Image from "next/image"
 
 import { Container } from "./style"
 
@@ -17,9 +16,9 @@ export const PageContent: React.FC<PageContentProps> = ({
   return (
     <Container>
       {pageContent?.url ? (
-        <Image
-          width={pageContent.dimensions.width}
-          height={pageContent.dimensions.height}
+        <img
+          width="100%"
+          height="100%"
           src={pageContent.url}
           alt={pageTitle?.[0]?.text}
         />

@@ -1,6 +1,5 @@
 import React from "react"
 import { useRouter } from "next/router"
-import Image from "next/image"
 import Link from "next/link"
 
 import { ROOT_PAGE_REDIRECT } from "@constants/index"
@@ -17,7 +16,7 @@ import {
 
 const ExternalLink: React.FC<{ href: string }> = ({ href, children }) => {
   const trackExternalClick = () => {
-    // TODO: reimplement teacking
+    // TODO: reimplement tracking
     return null
   }
   return (
@@ -33,11 +32,11 @@ export const NavBar: React.FC = () => {
     <Container>
       <Link href={ROOT_PAGE_REDIRECT}>
         <HeaderLink>
-          <Image
+          <img
             src="/comedown-logo.png"
             alt="Come Down comic logo"
-            width="100%"
-            height="57%"
+            width="125px"
+            height="70px"
           />
         </HeaderLink>
       </Link>
