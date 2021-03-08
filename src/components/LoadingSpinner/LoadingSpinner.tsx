@@ -30,7 +30,7 @@ const blink = keyframes`
   }
 `
 
-const Dot = styled.div`
+const Dot = styled.div<{ delay: number }>`
   animation-delay: ${({ delay }) => delay}s;
   width: 20px;
   height: 20px;
