@@ -41,7 +41,7 @@ export default class MyDocument extends Document {
           <link rel="icon" href="/comedown-favicon.png" />
           <link
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;900&display=swap"
-            rel="stylesheet"
+            rel="preload"
           ></link>
         </Head>
         <body>

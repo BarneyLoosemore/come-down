@@ -36,7 +36,7 @@ export const NavBar: React.FC = () => {
         <Link href={ROOT_PAGE_REDIRECT}>
           <HeaderLink>
             <img
-              srcSet={`/comedown-logo.png?width=400 400w, /comedown-logo.png?width=900 900w`}
+              srcSet={`/comedown-logo.webp?width=400 400w, /comedown-logo.webp?width=900 900w`}
               alt="Come Down comic logo"
               width="125px"
               height="70px"
