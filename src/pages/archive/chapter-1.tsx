@@ -16,8 +16,8 @@ export const getStaticProps = async () => {
   )
   return {
     props: {
-      response,
       pages,
+      title: "Chapter 1",
     },
   }
 }

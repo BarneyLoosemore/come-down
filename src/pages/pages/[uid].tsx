@@ -5,6 +5,7 @@ import Prismic from "@prismicio/client"
 import { ContentBox } from "@components/ContentBox"
 import { PageNavigation } from "@components/PageNavigation"
 import { PageContent } from "@components/PageContent"
+import { Meta } from "@components/Meta"
 
 import { Client } from "../../../prismic-configuration"
 
@@ -36,6 +37,7 @@ export const Page: React.FC<PageProps> = ({
   data: { page_title: pageTitle, page_content: pageContent },
 }) => (
   <>
+    <Meta title={pageTitle?.[0].text} />
     <TitleContainer>{pageTitle?.[0].text}</TitleContainer>
     <PageContent pageContent={pageContent} pageTitle={pageTitle} />
     <PageNavigation numPages={numPages} currentUid={Number(uid)} />

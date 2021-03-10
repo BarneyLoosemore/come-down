@@ -4,6 +4,7 @@ import Prismic from "@prismicio/client"
 import { RichText, RichTextBlock } from "prismic-reactjs"
 
 import { ContentBox } from "@components/ContentBox"
+import { Meta } from "@components/Meta"
 
 import { Client } from "../../prismic-configuration"
 
@@ -32,9 +33,12 @@ type AboutProps = {
 }
 
 const About: React.FC<AboutProps> = ({ about }) => (
-  <ContentBox>
-    <Container>{RichText.render(about)}</Container>
-  </ContentBox>
+  <>
+    <Meta title="About" />
+    <ContentBox>
+      <Container>{RichText.render(about)}</Container>
+    </ContentBox>
+  </>
 )
 
 export const getStaticProps = async () => {
