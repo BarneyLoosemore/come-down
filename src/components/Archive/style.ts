@@ -8,7 +8,9 @@ export const LinkText = styled.p`
   text-align: center;
   color: black;
   width: 400px;
-  margin: 16px auto;
+  border-bottom: 1px solid #f4f4f4;
+  margin: 10px auto;
+  padding-bottom: 12px;
   font-size: 24px;
   :hover {
     opacity: 0.7;
