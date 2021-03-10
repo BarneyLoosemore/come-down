@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Prismic from "@prismicio/client"
-import { RichText, RichTextBlock } from "prismic-reactjs"
+import { RichTextBlock } from "prismic-reactjs"
 
 import { ContentBox } from "@components/ContentBox"
 import { Meta } from "@components/Meta"
@@ -28,6 +28,15 @@ const Container = styled.div`
   }
 `
 
+const renderHTML = (richTextBlockArray: RichTextBlock[]) =>
+  richTextBlockArray.map(
+    ({ type, text }: RichTextBlock) =>
+      ({
+        ["heading1"]: <h1>{text}</h1>,
+        ["paragraph"]: <p>{text}</p>,
+      }[type] || <p>{text}</p>)
+  )
+
 type AboutProps = {
   about: RichTextBlock[]
 }
@@ -36,7 +45,7 @@ const About: React.FC<AboutProps> = ({ about }) => (
   <>
     <Meta title="About" />
     <ContentBox>
-      <Container>{RichText.render(about)}</Container>
+      <Container>{renderHTML(about)}</Container>
     </ContentBox>
   </>
 )
