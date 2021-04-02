@@ -1,3 +1,2 @@
 Source code for https://comedowncomic.com, a webcomic commissioned for me by Sola Simpson 
-~~Written with React/Gatsby, with Prismic as a CMS and Netlify to serve/host the site.~~
-Initially written with React/JS/Gatsby, but converted to Typescript and Next-JS -- partly because I've come to prefer both, and partly to see how such a conversion would be done. 
+Initially written with React/Vanilla JS/Gatsby, but converted to Typescript and Next.js -- partly because I've come to prefer both, and partly to see how such a conversion would be done. Prismic as CMS and Netlify for hosting.
